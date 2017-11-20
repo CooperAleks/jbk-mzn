@@ -1,0 +1,274 @@
+---
+title: Onuki
+---
+extends layouts/_layout
+block content
+	style.
+		.hero {
+			background-image: url(img/banner-1.jpg);
+		}
+		.banner {
+			background-image: url(img/banner-2.jpg);
+		}
+		@media (max-height: 767px) and (max-width: 1023px) and (orientation: portrait) {
+			.hero {
+				background-image: url(img/banner-mob-1.jpg);
+			}
+			.banner {
+				background-image: url(img/banner-mob-2.jpg);
+			}
+		}
+
+	section.hero
+		.l
+			.hero__logo
+				a(href="home.html").logo
+					img(src="img/logo.png" alt="logo" width="442")
+			.hero__title.title-l Turn up the music
+
+	section.options
+		.l
+			.options__items
+				-icons = ["opt-1", "opt-2", "opt-3", "opt-4", "opt-5", "opt-6"]
+				-texts = ["IPX7<br>Nano Coating<br>Water Resistant", "Silicone eartips<br>+ Foam Eartips<br>S, M, L sizes", "Stable connection<br>with Bluetooth<br>enabled devices", "Zippered<br>Carry Case", "Micro USB<br>+ iPhone<br>Charging Cable", "Amazing Battery:<br>Up to 9 Hours<br>Playback time!"]
+				each ic, i in icons
+					.options__item
+						.options__ic
+							img(src="img/#{ic}.png", alt="#{ic}")
+						.options__text!=texts[i]
+
+	section.product
+		.product__items
+			-images = ["prod-1", "prod-2", "prod-3"]
+			each img, i in images
+				case i
+					when 0
+						-mod = 'l'
+					when 1
+						-mod = 'm'
+					when 2
+						-mod = 'r'
+				-mod = 'product__item_'+mod
+				.product__item(class=mod)
+					img(src="img/#{img}.jpg" alt="#{img}")
+		.product__btn
+			a(href="https://www.amazon.com/Headphones-Waterproof-Sweatproof-Secure-Fit-Noise-Cancelling/dp/B074K7WZRZ/ref=sr_1_1?ie=UTF8&qid=1507718672&sr=8-1&keywords=bluetooth+wireless+earbuds" target="_blink").btn-img
+				span Buy From
+				img(src="img/amazon.png" alt="amazon")
+
+	section.banner
+		.l
+			.banner__in
+				.banner__title.title-l Extra protection
+				ul.banner__list
+					-links = ['IPX7:', 'waterproof', 'sweatproof', 'tearsproof']
+					each link, i in links
+						-mod = i ? '' : 'banner__link_h'
+						li.banner__link(class=mod)=link
+
+	section.about
+		.l
+			.about__in
+				.about__img
+					img(src="img/fly.png", alt="")
+				.about__dsc
+					.about__title.title-m Why choose onuki?
+					.about__subtitle.subtitle just few tips from our customers
+					-names = ["Controls", "Over-the-ear hooks", "Great Conversation"]
+					-texts = ["There is no remote to flop around and hit your face--the controls are built right into the earbuds. They are easy to find and use while running, and you can skip, rewind, and adjust the volume at any moment, hassle-free.", "There are a lots of Bluetooth earbuds available on Amazon which sound great, but don’t always stay put in your ear while you’re running or working out. Onuki earbuds feature over-the-ear hooks, which completely resolve this concern. I did a quick test by running in place, doing jumping jacks, and doing push-ups, and the earbuds stayed firmly in place in my ear without an issue.", "Not just for music, these headphone are also a great choice for making phone calls with friends and family. CVC 6.0 Noise Cancellation technology filters out any background noise and makes your sound loud and clear. You can expect high quality, hands-free phone conversations even on a busy street or inside a shopping mall."]
+					each name, i in names
+						.about__dt=name
+						.about__dd=texts[i]
+
+
+	section.steps
+		.l
+			.steps__items
+				-icons = ["step-1", "step-2", "step-3"]
+				-names = ["register your onuki", "service & warranty", "send photo to mr.onuki"]
+				each ic, i in icons
+					case i
+						when 0
+							-dataName = 'register'
+						when 1
+							-dataName = 'service'
+						when 2
+							-dataName = 'photo'
+					a(href="#").steps__item.js-popup-hand(data-popup-name=dataName)
+						.steps__ic
+							img(src="img/#{ic}.png" alt="#{ic}")
+						.steps__name: span=names[i]
+
+	section.feedback
+		.l
+			.feedback__title.title-m Get 15% discount for your first onukI earphones
+			.feedback__subtitle.subtitle we also like to share our flash deals and favorite music
+			.feedback__form
+				//- form(action="#").fb-form
+				//- 	.fb-form__cell.fb-form__cell_input
+				//- 		input(type="email" placeholder="your email").fb-form__el.fb-form__el_field
+				//- 	.fb-form__cell
+				//- 		button.fb-form__el.fb-form__el_btn Get code
+				include partials/_mailWG
+
+	section.footer
+		.l
+			.footer__in
+				.footer__soc
+					ul.social
+						-icons = ['fb', 'tw', 'is']
+						-links = ['https://www.facebook.com/onukisound/', 'https://twitter.com/ONUKI_TECH', 'https://www.instagram.com/onukisound/']
+						each ic, i in icons
+							li.social__el: a(href=links[i], target="_blink")
+								img(src="img/#{ic}.png", alt="#{ic}")
+				.footer__copy
+					span(data-popup-name="conditions").js-popup-hand Conditions of Use
+					=" "
+					span(data-popup-name="privacy").js-popup-hand Privacy Notice
+					=" "
+					span © 2017, ONUKI.com, Inc.
+
+	.overlay.js-overlay
+
+	.popup.js-popup(data-popup-name="register")
+		form(action="/send.php" method="POST").popup__in.js-sign-form
+			.popup__head
+				.popup__title Register your ONUKI earphones
+			.popup__body
+				.popup__bl
+					input(type="text" name="userName" placeholder="Your Name")
+					input(type="email" name="userEmail" placeholder="Your Email" required="required")
+				.popup__bl
+					input(type="text" name="userOrderNum" placeholder="Order number" required="required")
+					input(type="text" name="userOrderDate" placeholder="Order date" required="required")
+					textarea(name="userComment" placeholder="Message")
+					div.js-popup-hand(data-popup-name="rating")
+			button.popup__btn(type="button").js-form-submit Submit
+			.popup__hand.js-close
+				+svg('close')
+
+	.popup.js-popup(data-popup-name="rating")
+		form(action="/send1.php" method="POST" data-success-link="https://www.amazon.com/review/create-review?asin=B074K7WZRZ#").popup__in.js-rating-form
+			.popup__head
+				.popup__title We like you, do you like us?
+			.popup__body
+				.popup__bl
+					p We’ve got your warranty request, thank you!
+					p If you have few extra minutes, give us your feedback, we are really curious about your customer experience:
+					.rating.js-rating
+						.rating__bar.js-rating-bar
+							span.rating__bar-val.js-rating-val
+						ul.rating__list
+							-values = ["I hate it!", "Bad!", "Not good", "Well, I guess it’s okay", "I love it!"]
+							each val in values
+								li.rating__txt.js-rating-txt=val
+				.popup__bl.is-hidden.js-hidden-bl
+					p Please tell us what was wrong and let us fix it.
+					textarea(name="userComment" placeholder="Message")
+					div.js-popup-hand(data-popup-name="thanks")
+			button.popup__btn(type="button" ).js-form-submit Submit
+			.popup__hand.js-close
+				+svg('close')
+
+	.popup.popup_nobtn.js-popup(data-popup-name="service")
+		.popup__in
+			.popup__head
+				.popup__title Problem? Let’s fix it!
+			.popup__body.popup__body_large
+				include partials/_faq
+			.popup__hand.js-close
+				+svg('close')
+
+	.popup.js-popup(data-popup-name="photo")
+		form(action="/sendfile.php" method="POST" accept-charset="utf-8"  enctype="multipart/form-data").popup__in.js-photo-drop
+			.popup__head
+				.popup__title WE want to see you!
+			.popup__body
+				p Send us your photo, we like to see our pruducts in action :)
+				p Every month mr.Onuki selects photo-winners and sends gifts to them. You can follow us on Facebook to stay tuned!
+				.popup__bl
+					input(type="text" name="userName" placeholder="Your Name")
+					input(type="email" name="userEmail" placeholder="Your Email" required="required")
+				.photo-drop
+					.photo-drop__title Upload your photo
+					label.photo-drop__area
+						.photo-drop__ic
+							img(src="img/photo-drop.png" alt="photo-drop")
+						.photo-drop__txt Drop image here<br>or #[span click to browse]
+						input(type="file" id="userPhoto" name="userPhoto")
+						div.js-popup-hand(data-popup-name="thanks")
+			button.popup__btn.js-form-submit Submit
+			.popup__hand.js-close
+				+svg('close')
+
+	.popup.popup_thanks.js-popup(data-popup-name="thanks")
+		.popup__in
+			.popup__head
+				.popup__title Thank you !
+			.popup__hand.js-close
+				+svg('close')
+
+	.popup.popup_nobtn.js-popup(data-popup-name="conditions")
+		.popup__in
+			.popup__head
+				.popup__title Conditions of Use
+			.popup__body
+				p Welcome to the ONUKI website (each site where this Terms of Use is posted referred to as the “Site”).  This Terms of Use (this “ToU”) describes the terms and conditions applicable to your access and use of the Site, participation in any of our contests, and any other service, applications, or software made available through or in connection with the Site (collectively, the “Service”).   This ToU sets forth the terms and conditions under which access to the Site and the Service is provided to you by ONUKI TECH.
+				p ONUKI may amend this ToU at any time by posting the amended ToU on the Site, and you agree that you will be bound by any changes to this ToU. For your convenience, the date of last revision is included at the top of this page. ONUKI may make changes to the Site and/or the Service at any time. You understand that ONUKI may discontinue or restrict your use of the Site and/or Service for any reason or no reason with or without notice.
+				p Use of Site and Service
+				p ONUKI permits you to view and use a single copy of the Site solely for your personal, non-commercial use. You agree not to license, create derivative works from, transfer, sell or re-sell any information, content, or services obtained from the Site. Beats reserves the right to add or remove information, content or Services from the Site at any time at its sole discretion.
+				p No Violation of Laws
+				p You agree that you will not, in connection with your use of the Site or the Service, violate any applicable law or regulation. Without limiting the foregoing, you agree that you will not make available through the Site and/or Service any material or information that infringes any copyright, trademark, patent, trade secret, or other right of any party (including rights of privacy or publicity).
+				p Misuse of Site and/or Service
+				p You may not connect to or use the Site and/or Service in any way not expressly permitted by this ToU. Without limiting the foregoing, you agree that you will not: (a) institute, assist, or become involved in any type of attack, including without limitation denial of service attacks, upon the Site and/or Service or otherwise attempt to disrupt the Site and/or Service or any other person's use of the Site and/or Service; or (b) attempt to gain unauthorized access to the Site, Service, or the computer systems or networks connected to the Site and/or Service. Furthermore, you may not use the Site or Service to develop, generate, transmit or store information that: (i) is defamatory, harmful, abusive, obscene or hateful; (ii) in any way obstructs or otherwise interferes with the normal performance of another person's use of the Site and/or Service; (iii) performs any unsolicited commercial communication not permitted by applicable law; (iv) constitutes harassment or a violation of privacy or threatens other people or groups of people; (v) is harmful to children in any manner; (vi) violates any applicable law, regulation or ordinance; (vii) makes any false, misleading or deceptive statement or representation regarding Beats and/or the Service; or (viii) constitutes phishing, pharming or impersonates any other person, or steals or assumes any person's identity (whether a real identity or online nickname or alias).
+				p No Commercial Uses
+				p You agree that you will not use the Site or the Service for any commercial purpose or the benefit of any third party or charge any person, or receive any compensation for, the use of the Site or Service.
+				p No Data Mining or Harmful Code
+				p You agree that you will not (a) obtain or attempt to obtain any information from the Service; (b) intercept, examine or otherwise observe any proprietary communications protocol used by the Service, whether through the use of a network analyzer, packet sniffer or other device; or (c) use any type of bot, spider, virus, clock, timer, counter, worm, software lock, drop dead device, Trojan-horse routing, trap door, time bomb or any other codes, instructions or third-party software that is designed to provide a means of surreptitious or unauthorized access to, or distort, delete, damage or disassemble the Site or the Service.
+				p Mobile Devices
+				p The Site and Service contains services and features that are available to or through certain mobile devices. Your carrier's normal rates and fees apply. We do not guarantee that any or all Services will work with or be accessible through all carriers or devices.
+				p LINKS
+				p Links from the Site
+				p The Site may contain links to websites operated by other parties. ONUKI provides these links to other websites as a convenience, and use of these websites is at your own risk. The linked websites are not under the control of ONUKI, and ONUKI is not responsible for the content available on the other websites. Such links do not imply ONUKI' endorsement of information or material on any other website and ONUKI disclaims all liability with regard to your access to and use of such linked websites.
+				p Links to the Site
+				p Unless otherwise set forth in a written agreement between you and ONUKI, you must adhere to ONUKI' linking policy as follows: (i) the appearance, position and other aspects of the link may not be such as to damage or dilute the goodwill associated with ONUKI' and/or its licensors' names and trademarks, (ii) the appearance, position and other attributes of the link may not create the false appearance that your organization or entity is sponsored by, affiliated with, or associated with ONUKI, (iii) when selected by a user, the link must display the Site on full-screen and not within a "frame" on the linking site, and (iv) ONUKI reserves the right to revoke its consent to the link at any time and in its sole discretion.
+				p SOCIAL NETWORKS
+				p The Service includes features that operate in conjunction with certain third party social networking websites that you visit ("Social Network Features"). While your use of the Social Network Features is governed by this ToU, your access and use of third party social networking websites and the services provided through these websites is governed by the terms of service and other agreements posted on these websites. YOU AGREE THAT YOU ALONE ARE RESPONSIBLE FOR YOUR USE OF THE SOCIAL NETWORK FEATURES AND THAT BEATS WILL NOT BE LIABLE TO YOU OR ANYONE ELSE FOR YOUR VIOLATION OR BREACH OF ANY TERMS OF SERVICE OR OTHER AGREEMENT THAT MAY RESULT FROM YOUR USE OF THE SOCIAL NETWORK FEATURES.
+				p COPYRIGHT
+				p The Site and Service and the content made available through the Site and Service are protected by U.S. and international copyright laws. You may not use, modify, reproduce or distribute any of the content, or the design or layout of the Site or Service, or individual sections of the content, design or layout of the Site without ONUKI' express prior written permission.
+			.popup__hand.js-close
+				+svg('close')
+
+	.popup.popup_nobtn.js-popup(data-popup-name="privacy")
+		.popup__in
+			.popup__head
+				.popup__title PRIVACY STATEMENT
+			.popup__body
+				p WHAT DO WE DO WITH YOUR INFORMATION?
+				p When you browse our store, we also automatically receive your computer’s internet protocol (IP) address in order to provide us with information that helps us learn about your browser and operating system.
+				p Email marketing: With your permission, we may send you emails about our store, new products and other updates.
+				p CONSENT
+				p How do you get my consent?
+				p When you provide us with personal information to submit a form, we imply that you consent to our collecting it and using it for that specific reason only.
+				p If we ask for your personal information for a secondary reason, like marketing, we will either ask you directly for your expressed consent, or provide you with an opportunity to say no.
+				p How do I withdraw my consent?
+				p If after you opt-in, you change your mind, you may withdraw your consent for us to contact you, for the continued collection, use or disclosure of your information, at anytime, by contacting us at support@onuki.tech
+				p DISCLOSURE
+				p We may disclose your personal information if we are required by law to do so or if you violate our Terms of Service.
+				p THIRD-PARTY SERVICES
+				p Links
+				p When you click on links on our store, they may direct you away from our site. We are not responsible for the privacy practices of other sites and encourage you to read their privacy statements.
+				p Google analytics:
+				p Our store uses Google Analytics to help us learn about who visits our site and what pages are being looked at
+				p SECURITY
+				p To protect your personal information, we take reasonable precautions and follow industry best practices to make sure it is not inappropriately lost, misused, accessed, disclosed, altered or destroyed.
+				p AGE OF CONSENT
+				p By using this site, you represent that you are at least the age of majority in your state or province of residence, or that you are the age of majority in your state or province of residence and you have given us your consent to allow any of your minor dependents to use this site.
+				p CHANGES TO THIS PRIVACY POLICY
+				p We reserve the right to modify this privacy policy at any time, so please review it frequently. Changes and clarifications will take effect immediately upon their posting on the website. If we make material changes to this policy, we will notify you here that it has been updated, so that you are aware of what information we collect, how we use it, and under what circumstances, if any, we use and/or disclose it.<br>
+				p If our store is acquired or merged with another company, your information may be transferred to the new owners so that we may continue to sell products to you.
+				p QUESTIONS AND CONTACT INFORMATION
+				p If you would like to: access, correct, amend or delete any personal information we have about you, register a complaint, or simply want more information contact our Privacy Compliance Officer at support@onuki.tech
+			.popup__hand.js-close
+				+svg('close')
+

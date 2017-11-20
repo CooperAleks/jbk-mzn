@@ -1,0 +1,780 @@
+.hero
+	position: relative
+	height: 755px
+	padding: 70px 0
+	background-repeat: no-repeat
+	background-position: center
+	background-size: cover
+	+md
+		height: 100vh
+	&__title
+		position: absolute
+		left: 50px
+		bottom: 45px
+		z-index: 1
+		+sm
+			left: 15px
+
+.logo
+	display: block
+	width: 442px
+	// height: 109px
+	img
+		display: block
+		max-width: 100%
+		max-height: 100%
+	+sm
+		+css-lock(290, 442, 320, 767, width)
+
+.options
+	padding: 60px 0
+	background-color: #080807
+	+md
+		padding: 50px 0
+	&__items
+		margin: -25px
+		+justify
+		+r(1250)
+			display: flex
+			justify-content: space-around
+			flex-wrap: wrap
+			&:after
+				display: none
+		+sm
+			margin: -15px
+		+xs
+			margin: -15px -10px
+	&__item
+		display: inline-block
+		vertical-align: top
+		padding: 25px
+		text-align: center
+		+r(1250)
+			width: 33.3333%
+		+sm
+			width: 50%
+			padding: 15px
+		+xs
+			padding: 15px 10px
+	&__ic
+		height: 100px
+		margin-bottom: 25px
+		+vertical
+		img
+			vertical-align: middle
+			max-width: 100%
+			max-height: 100%
+		+sm
+			height: 75px
+	&__text
+		font-size: 24px
+		line-height: 1.25
+		color: $grey
+		+sm
+			font-size: 20px
+		+xs
+			font-size: 18px
+
+.product
+	$H: 680px
+	position: relative
+	overflow: hidden
+	background-color: #fff
+	+r(1250)
+		padding: 30px 0
+	&__items
+		padding-right: 30px
+		margin: 0 -30px
+		font-size: 0
+		+r(1250)
+			margin: 0 -20px
+		+md
+			padding-right: 20px
+		+sm
+			padding-bottom: 10px
+			padding-right: 10px
+			margin: 0 -10px
+	&__item
+		display: inline-block
+		height: $H
+		padding: 0 30px
+		+vertical
+		&_l
+			width: 380/16.6+%
+			padding: 30px
+		&_r
+			width: 630/16.6+%
+			padding: 30px
+		&_m
+			width: 650/16.6+%
+		img
+			vertical-align: middle
+			max-width: 100%
+			max-height: 100%
+		+r(1250)
+			height: auto
+			padding: 0 20px
+		+md
+			padding: 0 10px
+	&__btn
+		position: absolute
+		left: 0
+		right: 0
+		bottom: 175px
+		z-index: 1
+		text-align: center
+		+md
+			top: 0
+			bottom: 0
+			+vertical
+			.btn-img
+				vertical-align: middle
+		+sm
+			position: static
+
+.banner
+	position: relative
+	overflow: hidden
+	height: 780px
+	padding: 70px 0
+	background-repeat: no-repeat
+	background-position: center
+	background-size: cover
+	+r(1250)
+		height: 100vh
+	+sm
+		padding: 50px 0
+	&__in
+		padding: 0 20px
+	&__list
+		position: absolute
+		left: 70px
+		bottom: 60px
+		+sm
+			left: 35px
+			bottom: 50px
+	&__link
+		$shadow: 0px 4px 0px rgba(#000, 0.66)
+		position: relative
+		display: block
+		padding-left: 25px
+		text-shadow: $shadow
+		+textSB
+		font-size: 48px
+		line-height: 1.2
+		color: #fff
+		&_h
+			+textB
+			font-size: 62px
+		&:after
+			content: ''
+			position: absolute
+			top: 0
+			left: 0
+			bottom: 0
+			z-index: 1
+			width: 8px
+			height: 9px
+			margin: auto
+			box-shadow: $shadow
+			background-color: #fff
+		&_h:after
+			display: none
+		+sm
+			+css-lock(48*.6666, 48, 320, 767)
+			&_h
+				+css-lock(62*.6666, 62, 320, 767)
+
+.about
+	$L: (610/16+%)
+	&__in
+		position: relative
+		padding: 50px 0 60px $L
+		+md
+			padding: 50px 0
+	&__img
+		position: absolute
+		top: -45px
+		left: 0
+		bottom: 0
+		z-index: 1
+		width: $L
+		font-size: 0
+		max-height: 760px
+		img
+			position: absolute
+			top: 0
+			right: 0
+			z-index: 1
+			width: auto
+			height: 100%
+		+md
+			display: none
+	&__dsc
+		max-width: 790px
+		padding-left: 10px
+		+md
+			max-width: none
+			padding-left: 0
+	&__title
+		margin-bottom: 10px
+	&__subtitle
+		padding-right: 120px
+		text-align: right
+		margin-bottom: 30px
+		+r(1250)
+			padding-right: 0px
+		+sm
+			text-align: left
+	&__dt
+		display: inline-block
+		margin-bottom: 10px
+		border-bottom: 4px solid $outline
+		+textSB
+		font-size: 36px
+		line-height: 1.1
+		color: $dark
+		text-transform: uppercase
+		+sm
+			+css-lock(24, 36, 320, 767)
+	&__dd
+		margin-bottom: 35px
+		font-size: 20px
+		line-height: 1.2
+		color: $text
+		&:last-child
+			margin-bottom: 0
+		+sm
+			font-size: 18px
+
+.steps
+	$P: &
+	padding: 160px 0
+	background-color: $dark
+	color: #fff
+	+r(1250)
+		padding: 100px 0
+	+md
+		padding: 80px 0
+	&__items
+		margin: 0 -25px
+		font-size: 0
+		text-align: center
+		+md
+			+clr
+			margin: 0
+	&__item
+		max-width: 33.3333%
+		padding: 0 25px
+		display: inline-block
+		vertical-align: top
+		color: #fff
+		+md
+			width: auto
+			max-width: none
+			padding: 0
+			float: left
+			clear: left
+			text-align: left
+			margin-bottom: 40px
+			&:last-child
+				margin-bottom: 0
+		+xs
+			float: none
+			display: block
+			text-align: center
+	&__ic
+		height: 210px
+		margin-bottom: 80px
+		+vertical
+		img
+			vertical-align: middle
+			max-width: 100%
+			max-height: 100%
+		+r(1250)
+			margin-bottom: 50px
+		+md
+			width: 100px
+			height: 100px
+			display: inline-block
+			vertical-align: middle
+			margin-bottom: 0
+			margin-right: 20px
+		+xs
+			margin-right: 0
+			margin-bottom: 30px
+	&__name
+		display: block
+		+textSB
+		font-size: 36px
+		line-height: 1.4
+		text-transform: uppercase
+		white-space: nowrap
+		span
+			border-bottom: 3px solid transparent
+			+tr(.2s)
+		#{$P}__item:hover & span
+			border-color: #fff
+		+r(1250)
+			font-size: 32px
+			white-space: normal
+		+md
+			display: inline-block
+			vertical-align: middle
+			font-size: 24px
+			span
+				border-width: 2px
+		+xs
+			display: block
+
+.feedback
+	padding: 60px 0 115px
+	text-align: center
+	+md
+		padding: 50px 0 60px
+	&__title
+		margin-bottom: 25px
+	&__subtitle
+		margin-bottom: 20px
+
+.fb-form
+	display: table
+	width: 840px
+	margin: 0 auto
+	+md
+		width: 100%
+		// box-shadow: 0 0 0 2px khaki
+	+xs
+		display: block
+	&__cell
+		display: table-cell
+		vertical-align: top
+		&_input
+			width: 100%
+		+xs
+			display: block
+			text-align: left
+	&__el
+		padding: 15px
+		+textSB
+		font-size: 36px
+		color: $dark
+		text-transform: uppercase
+		text-align: center
+		+tr(.2s)
+		+md
+			padding: 10px 15px
+			font-size: 32px
+	&__el_field
+		width: 100%
+		border-bottom: 1px solid #cececf
+		background-color: #fff
+		color: $dark
+		+placeholder
+			color: $dark
+			+tr(.2s)
+		&:focus
+			+placeholder
+				opacity: 0
+		+xs
+			margin-bottom: 20px
+	&__el_btn
+		width: 170px
+		background-color: $dark
+		color: #fff
+		&:active
+			transform: scale(.9)
+		.no-touch &:hover
+			background-color: lighten($dark, 5%)
+		+xs
+			width: 100%
+
+.footer
+	// padding: 65px 0 360px
+	padding: 65px 0
+	background-color: #f7f7f8
+	+md
+		padding: 50px 0 25px
+	&__in
+		max-width: 630px
+		margin: 0 auto
+	&__soc
+		margin-bottom: 95px
+		+md
+			margin-bottom: 50px
+	&__copy
+		+justify
+		span
+			display: inline-block
+			vertical-align: middle
+			+textM
+			font-size: 24px
+			line-height: 1.2
+			color: #080807
+		+sm
+			span
+				+css-lock(12, 24, 320, 767)
+		+r(320)
+			span
+				font-size: 12px
+
+.social
+	margin: -20px
+	+justify
+	+md
+		margin: -15px
+	&__el
+		display: inline-block
+		vertical-align: middle
+		padding: 20px
+		+md
+			padding: 15px
+	&__el a
+		display: block
+		height: 125px
+		+vertical
+		+md
+			height: 75px
+		+sm
+			height: 50px
+	&__el img
+		vertical-align: middle
+		max-width: 100%
+		max-height: 100%
+
+.popup
+	$P: &
+	position: relative
+	position: fixed
+	top: 50px
+	left: 0
+	right: 0
+	bottom: 50px
+	z-index: 1000
+	margin: auto
+	max-width: 960px
+	margin: auto
+	background-color: #fff
+	font-size: 0
+	opacity: 0
+	visibility: hidden
+	+tr(.2s)
+	&.is-active
+		opacity: 1
+		visibility: visible
+	&_thanks
+		+vertical
+		padding: 0
+		background-color: transparent
+		pointer-events: none
+		#{$P}__in
+			overflow: visible
+			position: relative
+			display: inline-block
+			vertical-align: middle
+			height: auto
+			padding: 0
+			background-color: #fff
+		#{$P}__head
+			padding: 50px
+		#{$P}__hand
+			top: -33px
+			right: -33px
+			pointer-events: auto
+	+md
+		left: 50px
+		right: 50px
+		max-width: 100%
+	+sm
+	 top: 15px
+	 left: 15px
+	 right: 15px
+	 bottom: 15px
+	&__in
+		height: 100%
+		padding: 0 0 200px
+		overflow: hidden
+		#{$P}_nobtn &
+			padding-bottom: 50px
+		// +md
+		// 	padding: 0 0 150px
+	&__head
+		padding: 50px
+		padding-right: 128px
+		+md
+			padding: 30px 30px 40px
+			padding-right: 84px
+		+sm
+			// padding: 15px 15px 30px
+			padding: 15px 15px 20px
+			padding-right: 54px
+	&__body
+		height: 100%
+		padding: 0 50px 150px
+		overflow: auto
+		+md
+			padding: 0 30px 75px
+		+sm
+			// padding: 0 15px 75px
+			padding: 0 15px 25px
+		&_large
+		  	padding: 0 50px 250px
+	&__title
+		+textSB
+		font-size: 48px
+		line-height: 1.2
+		color: $dark
+		text-transform: uppercase
+		+md
+			font-size: 28px
+	p
+		margin-bottom: 30px
+		font-size: 30px
+		line-height: 1.2
+		color: $dark
+		&:last-child
+			margin-bottom: 0
+		+md
+			font-size: 22px
+			margin-bottom: 25px
+	input, textarea
+		width: 100%
+		padding: 13px 0 12px
+		border-bottom: 1px solid #a7b8c2
+		margin-bottom: 15px
+		+text
+		font-size: 28px
+		color: $dark
+		+tr(.2s)
+		+placeholder
+			+textL
+			color: $dark
+			+tr(.2s)
+		&:focus
+			border-color: $dark
+			+placeholder
+				opacity: 0
+		&:last-child
+			margin-bottom: 0
+		+md
+			padding: 12px 0
+			margin-bottom: 10px
+			font-size: 22px
+	textarea
+		height: 150px
+		+md
+			height: 125px
+	&__bl
+		margin-bottom: 50px
+		+tr(.2s)
+		&:last-child
+			margin-bottom: 0
+		&.is-hidden
+			opacity: 0
+			visibility: hidden
+		+md
+			margin-bottom: 30px
+	&__btn
+		position: absolute
+		left: 0
+		right: 0
+		bottom: 0
+		z-index: 1
+		width: 100%
+		height: 150px
+		background-color: $dark
+		background: #000
+		+textB
+		font-size: 34px
+		color: #fff
+		letter-spacing: .2em
+		text-transform: uppercase
+		+tr(.2s)
+		.no-touch &:hover
+			background-color: lighten($dark, 5%)
+		&.is-static
+			position: static
+		+md
+			height: 75px
+			font-size: 28px
+	&__hand
+		position: absolute
+		top: 60px
+		right: 55px
+		z-index: 1
+		font-size: 0
+		cursor: pointer
+		.icon
+			font-size: 28px
+			stroke-width: 2px
+			stroke: $grey
+			+tr(.2s)
+		.no-touch &:hover .icon
+			stroke: $dark
+		+md
+			top: 35px
+			right: 30px
+			.icon
+				font-size: 24px
+		+sm
+			top: 20px
+			right: 15px
+
+.rating
+	+clr
+	$starW: 64px
+	$starH: 60px
+	$lal: 60px
+	&__bar
+		float: left
+		margin-right: 45px
+		overflow: hidden
+		position: relative
+		width: $starW*5
+		height: $starH
+		background: $star repeat-x left center
+		background-size: contain
+		cursor: pointer
+		+md
+			width: $starW*.6666*5
+			height: $starH*.6666
+		+sm
+			float: none
+			margin: 0 0 25px
+	&__bar-val
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		z-index: 1
+		// width: 80%
+		width: 0%
+		background: $starFill repeat-x left center
+		background-size: contain
+	&__list
+		position: relative
+		min-height: $starH
+		margin-left: $starW*5+45
+		+md
+			min-height: $starH*.6666
+			margin-left: $starW*.6666*5+25
+		+sm
+			margin: 0
+	&__txt
+		position: absolute
+		top: 0
+		left: 0
+		z-index: 1
+		font-size: 30px
+		line-height: $starH
+		color: $dark
+		cursor: pointer
+		+tr(.2s)
+		opacity: 0
+		visibility: hidden
+		.no-touch &:hover
+			text-shadow: 0 1px 0 $dark
+		&.is-active
+			opacity: 1
+			visibility: visible
+		+md
+			font-size: 26px
+			line-height: $starH*.6666
+
+.overlay
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	z-index: 999
+	background-color: rgba(#1E2024, .8)
+	opacity: 0
+	visibility: hidden
+	+tr(.2s .1s ease-in-out)
+	&.is-active
+		opacity: 1
+		visibility: visible
+		transition-delay: 0s
+
+.photo-drop
+	&__title
+		font-size: 24px
+		line-height: 1.2
+		color: $dark
+		margin-bottom: 10px
+		+md
+			font-size: 22px
+	&__area
+		display: block
+		padding: 20px
+		border: 2px dashed #8c8c8c
+		cursor: pointer
+		text-align: center
+		input
+			display: none
+	&__ic
+		width: 100%
+		//height: 80px
+		margin: 0 auto 15px
+		+vertical
+		img
+			vertical-align: middle
+			max-width: 100%
+			max-width: 100%
+	&__txt
+		+text
+		font-size: 24px
+		color: $dark
+		span
+			+textSB
+		+md
+			font-size: 22px
+
+.faq
+	$P: &
+	color: $dark
+	&__title
+		font-size: 30px
+		line-height: 1.2
+		margin-bottom: 15px
+		+md
+			font-size: 24px
+	&__el
+		margin-bottom: 0
+	&__name
+		padding-bottom: 20px
+		cursor: pointer
+		span
+			+textM
+			line-height: 1.2
+			font-size: 30px
+			border-bottom: 2px solid $dark
+			+tr(.2s)
+		#{$P}__el.is-active	& span
+			border-color: transparent
+		+md
+			padding-bottom: 15px
+			span
+				font-size: 22px
+				border-width: 1px
+	&__answ
+		display: none
+		padding-bottom: 40px
+		+md
+			padding-bottom: 25px
+		p, ul, li
+			+textM
+			line-height: 1.2
+			margin-bottom: 15px
+			&:last-child
+				margin-bottom: 0
+		li
+			font-size: 16px
+			+md
+				font-size: 14px
+		p
+			font-size: 18px
+			+md
+				font-size: 16px

@@ -1,0 +1,63 @@
+-question = ['Battery doesn’t hold charge anymore, what should I do?', 'Pairing and connection problems', 'Fitting advice', 'Sound became muffled/rattling. How to get back to clear sound?', 'The Bluetooth signal is cutting up', 'NO? It doesn’t help?']
+
+mixin text1
+	p We are very sorry to hear that you are experiencing a problem with the headphones not holding a charge as they should.
+	-list = ["1. Connect the earbuds to a power source.", "2. While connected to a source power press and hold the power button for 7 seconds.", "3. Try to connect again by following the steps for connecting."]
+	ul
+		each link in list
+			li=link
+	p Please don’t hesitate to contact our support if nothing mentioned above helps. We won't close the case until you are happy with the product.
+
+mixin text2
+	p If you experince pairing and connection problems, please do a Full Reset:
+	-list = ["1. Reset the earphones to factory settings (while plugged in press/hold the power button for 7 seconds).", "2. Go to your device's Bluetooth menu and delete all saved devices from the list by clicking “forget this device”.", "3. Turn your device's Bluetooth off then turn back on. ONUKI earbuds will be deleted.", "4. Power off the device then turn back on.", "5. Unplug ONUKI from charging cable then power on.", "6. Enter the earbuds into the pairing mode and follow instructions below for connecting:", "A. Set the buds to discovery mode, by pressing and holding the home button until you see blue and red led’s flashing.", "B. Find “ONUKI” in your Bluetooth menu on your device and click “ONUKI”."]
+	ul
+		each link in list
+			li=link
+	p This should solve the connection and range problems.
+	p Please note: For the Bluetooth earbuds to work properly the signal has to have a straight path from the device to the earbuds. If the path has any sort of blocks, or the distance between the devices is over 35 feet, the signal might break. This is a normal occurrence for all Bluetooth headphones. So we advise keeping that in mind when using the product.
+
+mixin text3
+	p Everyone has individual anatomic features, and that's why there are some critical points in fitting earbuds that you need to pay attention to.
+	p First, the key to a proper earphone fit is using the right size ear tip. Try all of the various sizes of foam and silicone tips that come with your earphones. Foam tips are more flexible for size differences, so are an excellent option for hard-to-fit ears. In this case, to find comfort and a better fit, you might also buy specialized tips.
+	p Also, kindly note that one ear may be slightly larger than the other, so you may need to use a different size tip for each ear.
+	p Secondly, to seat the ear tip firmly try gently pulling on the outer rim of your ear to ease the tip into a comfortable position. You should notice a drop in ambient noise when the tip is seated correctly. And when you're listening to music, you'll notice more range, especially bass.
+	p Thirdly, to secure the tip in your ear try (even while using the grips) looping the cable that connects them behind your head and around the top of each ear.
+
+mixin text4
+	p All our customers agree that the sound of ONUKI earphones is rich and crispy and if you don't get such quality – probably something went wrong.
+	p If the sound is somehow disappointing, kindly try checking the equalizer preset on your device. And please, mind the source – bitrates of the track could dramatically reduce the final sound quality.
+	p Also, we will ask you to troubleshoot the earphones (in most cases this procedure resolves the sound issue) by performing the following steps:
+	-list = ["1. Connect the earbuds to a power source.", "2. While connected to a source power press and hold the power button for 7 seconds.", "3. Try to connect again by following the steps for connecting."]
+	ul
+		each link in list
+			li=link
+	p Please don’t hesitate to contact our support if nothing mentioned above helps. We won't close the case until you are happy with the product.
+
+mixin text5
+	p Please reset the earbuds and set up the connection between them and your device:
+	-list =	["1 Reset the earphones to factory settings (while plugged in press/hold the power button for 7 seconds).", "2 Go to your device's Bluetooth menu and delete all saved devices from the list by clicking “forget this device”.", "3 Turn your device's Bluetooth off then turn back on. ONUKI earbuds will be deleted.", "4 Power off the device then turn back on.", "5 Unplug ONUKI from charging cable then power on.", "6 Enter the earbuds into the pairing mode and follow instructions below for connecting:", "1.1 Set the buds to discovery mode, by pressing and holding the home button until you see blue and red led’s flashing.", "1.2 Find “ONUKI” in your Bluetooth menu on your device and click “ONUKI”."]
+	ul
+		each link in list
+			li=link
+	p Please don’t hesitate to contact our support if nothing mentioned above helps. We won't close the case until you are happy with the product.
+
+mixin text6
+	p Please contact our support, we will fix it.
+	.popup__bl
+		input(type="text" name="userName" placeholder="Your Name")
+		input(type="email" name="userEmail" placeholder="Your Email")
+	textarea(name="userComment" placeholder="Message")
+	input(type="hidden" name="userOrderNum" value="FAQ FORM")
+	div.js-popup-hand(data-popup-name="thanks")
+	button.popup__btn(type="button").js-form-submit Submit
+
+form(action="/send.php" method="POST").faq.js-faq.js-faq-form
+	.faq__title The most common issues:
+	ul.faq__list
+		each q, i in question
+			-content = 'text'+(i+1)
+			li.faq__el
+				.faq__name.js-faq-ques: span=q
+				.faq__answ.js-faq-answ
+					+#{content}()

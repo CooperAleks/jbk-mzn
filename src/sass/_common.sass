@@ -1,0 +1,143 @@
++font(Rajdhani-Light, Rajdhani-Light)
+=textL
+	font-family: 'Rajdhani-Light', sans-serif
++font(Rajdhani-Regular, Rajdhani-Regular)
+=text
+	font-family: 'Rajdhani-Regular', sans-serif
++font(Rajdhani-Medium, Rajdhani-Medium)
+=textM
+	font-family: 'Rajdhani-Medium', sans-serif
++font(Rajdhani-Semibold, Rajdhani-Semibold)
+=textSB
+	font-family: 'Rajdhani-Semibold', sans-serif
++font(Rajdhani-Bold, Rajdhani-Bold)
+=textB
+	font-family: 'Rajdhani-Bold', sans-serif
+
+// input[type="email"]:valid
+// 	background: green 
+// input[type="email"]:invalid
+// 	background: red 
+// customizing
+input.is-error
+	background: rgba(#f00,0.2) 
+a
+	text-decoration: none
+button, input
+	appearance: none
+textarea
+	padding: 0px 
+	border: none
+	resize: none
+select
+	appearance: none
+	border: none
+	box-shadow: none
+	background: transparent
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
+	-webkit-appearance: none
+	margin: 0
+input[type='number']
+	-moz-appearance: textfield
+
+body
+	+text
+	font-size: 14px
+	line-height: 1.4
+	color: #000
+	&.no-scroll
+		overflow: hidden
+
+$title1: #c2d0da
+$title2: #1e2024
+$outline: #747575
+$text: #444445
+$dark: #1e2024
+$lightgrey: #adadaf
+$grey: #989897
+
+.icon
+	display: inline-block
+
+.out
+	position: relative
+	overflow: hidden
+
+.l
+	min-width: 320px
+	padding: 0 50px
+	margin: auto
+	+sm
+		padding: 0 15px 
+
+.title-l
+	padding-top: 2px 
+	+textSB
+	font-size: 80px
+	line-height: 53px
+	color: $title1
+	text-shadow: 0px 4px 0px rgba(0, 0, 0, 0.66)
+	text-transform: uppercase
+	+sm
+		line-height: 1.2 
+		+css-lock(40, 80, 320, 767)
+
+.title-m
+	+textSB
+	font-size: 60px
+	line-height: 1.2 
+	color: #02040f
+	text-transform: uppercase
+	+sm
+		+css-lock(32, 60, 320, 767)
+
+.subtitle
+	font-size: 24px
+	line-height: 1.2 
+	color: $lightgrey
+	+sm
+		font-size: 22px 
+
+.btn-img
+	$c1: #f0e975
+	$c2: #feaf32
+	$span: #7a5518
+	display: inline-block
+	padding: 26px 20px 15px 
+	border-radius: 5px
+	background: linear-gradient($c1, $c2)
+	box-shadow: 0 1px 5px darken($lightgrey, 20%)
+	line-height: 1
+	white-space: nowrap
+	cursor: pointer
+	+textB
+	font-size: 30px
+	color: $span
+	+tr(.2s)
+	span
+		display: inline-block
+		vertical-align: middle
+		padding-bottom: 15px
+		text-shadow: 1px 1px 1px rgba($dark, 1)
+		-webkit-background-clip: text
+		-moz-background-clip: text
+		background-clip: text
+		// background-color: $span
+		// color: transparent 
+	img
+		display: inline-block
+		vertical-align: middle
+		width: 160px 
+		margin-left: 15px
+	&:active
+		transform: scale(.9)
+	+md
+		padding: 18px 20px 9px
+		font-size: 24px
+		span
+			padding-bottom: 11px 
+		img
+			width: 120px 
+
+.js-popup-hand
+	cursor: pointer

@@ -1,0 +1,29 @@
+- var svgSprite = 'img/sprite.svg'
+
+mixin svg(name, modClass)
+	- modClass = modClass ? ' ' + modClass : ''
+	svg(class='icon icon-' + name + modClass)
+		use(xlink:href= svgSprite + '#' + 'icon-' + name)
+
+mixin png(name, modClass)
+	- modClass = modClass ? ' ' + modClass : ''
+	i(class='icon icon-' + name + modClass)
+
+-
+	function classMod(parent, modList) {
+		var classList = '';
+		var classP = parent; // parent className
+		if (modList && ~modList.indexOf(' ')) {
+			modList = modList.split(' ');
+
+			for(var i = 0; i < modList.length; i++) {
+				classList+= classP + '_' + modList[i] + ' ';
+			}
+
+			classList = classList.replace(/^\s+|\s+$/g, '');
+		} else if (modList) {
+			classList = classP + '_' + modList;
+		}
+
+		return classList;
+	}
