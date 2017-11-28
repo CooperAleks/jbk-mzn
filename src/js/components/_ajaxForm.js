@@ -16,6 +16,12 @@ function validateEmail(email) {
 		if(!validateEmail(signForm.find('[name="userEmail"]').val())){
 			signForm.find('[name="userEmail"]').addClass('is-error');
 			return false;
+		} else if(!signForm.find('[name="userOrderNum"]').val()) {
+			signForm.find('[name="userOrderNum"]').addClass('is-error');
+			return false;
+		} else {
+			signForm.find('[name="userOrderNum"]').removeClass('is-error');
+			signForm.find('[name="userEmail"]').removeClass('is-error');
 		}
 
 		const ajaxData = signForm.serialize();
@@ -43,7 +49,7 @@ function validateEmail(email) {
 	const sendHand = rateForm.find('.js-form-submit');
 
 	const dataRatingVal = 'data-rating-val',
-	dataSuccesLink = 'data-success-link';
+	dataSuccessLink = 'data-success-link';
 
 	function sendForm() {
 
@@ -54,9 +60,8 @@ function validateEmail(email) {
 		rateData.append("userComment", rateForm.find('[name="userComment"]').val());
 		rateData.append("userEmail", $('.js-sign-form').find('[name="userEmail"]').val());
 
-		if ( rateData == 5 ) {
-
-			window.open(rateForm.attr(dataSuccesLink), '_blank');
+		if ( rateForm.attr(dataRatingVal) == 5 ) {
+			window.open(rateForm.attr(dataSuccessLink), '_blank');
 			// window.location.href = rateForm.attr(dataSuccesLink);
 			return;
 		}

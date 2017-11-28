@@ -14,10 +14,35 @@
 		z-index: 1
 		+sm
 			left: 15px
+	&__wrapper
+		position: absolute
+		left: 0
+		bottom: 0
+		display: flex
+		align-items: center
+		justify-content: center
+		flex-direction: column
+		width: 100%
+		height: 76%
+		text-align: center
+		color: $title3
+		text-shadow: 3px 3px 4px rgba(0,0,0,.66)
+		+sm
+			height: 60%
+			font-size: 7vw
+	&__promo
+		margin-top: 80px
+		padding: 20px
+		background-color: rgba(0,0,0,0.4)
+		font-size: 80px
+		+sm
+			font-size: 12vw
+			margin-top: 25px
 
 .logo
 	display: block
 	width: 442px
+	float: left
 	// height: 109px
 	img
 		display: block
@@ -25,6 +50,53 @@
 		max-height: 100%
 	+sm
 		+css-lock(290, 442, 320, 767, width)
+
+.countdown-timer
+	float: right
+	+md
+		float: none
+		margin-top: 50px
+		display: inline-block
+		width: 100%
+
+	ul > li
+		float: left
+		background: linear-gradient(0deg,#121313,#2e3135 100%,#272727 100%)
+		color: #fff
+		height: 124px
+		width: 130px
+		margin-right: 15px
+		position: relative
+		+md
+			width: 30%
+			margin-right: 5%
+			height: auto
+
+
+		&:last-child
+			margin-right: 0
+
+		.smalltext
+			font-size: 30px
+			position: absolute
+			top: -44px
+			width: 100%
+			text-align: center
+			text-transform: uppercase
+			+sm
+				font-size: 5vw
+				top: -22px
+
+		span
+			+textB
+			font-size: 110px
+			display: block
+			line-height: 124px
+			text-align: center
+			text-shadow: 6px 5px 5px rgba(0,0,0,0.7)
+			+sm
+				line-height: 70px
+				font-size: 18vw
 
 .options
 	padding: 60px 0
@@ -184,6 +256,9 @@
 			+css-lock(48*.6666, 48, 320, 767)
 			&_h
 				+css-lock(62*.6666, 62, 320, 767)
+	&__review
+		img
+			width: 100%
 
 .about
 	$L: (610/16+%)
@@ -499,8 +574,7 @@
 		// +md
 		// 	padding: 0 0 150px
 	&__head
-		padding: 50px
-		padding-right: 128px
+		padding: 50px 128px 25px 50px
 		+md
 			padding: 30px 30px 40px
 			padding-right: 84px
@@ -510,7 +584,7 @@
 			padding-right: 54px
 	&__body
 		height: 100%
-		padding: 0 50px 150px
+		padding: 0 50px 100px
 		overflow: auto
 		+md
 			padding: 0 30px 75px
@@ -521,15 +595,15 @@
 		  	padding: 0 50px 250px
 	&__title
 		+textSB
-		font-size: 48px
+		font-size: 40px
 		line-height: 1.2
 		color: $dark
 		text-transform: uppercase
 		+md
 			font-size: 28px
 	p
-		margin-bottom: 30px
-		font-size: 30px
+		margin-bottom: 20px
+		font-size: 22px
 		line-height: 1.2
 		color: $dark
 		&:last-child
@@ -537,13 +611,16 @@
 		+md
 			font-size: 22px
 			margin-bottom: 25px
+		span
+			+textSB
+			font-size: 24px
 	input, textarea
 		width: 100%
 		padding: 13px 0 12px
 		border-bottom: 1px solid #a7b8c2
 		margin-bottom: 15px
 		+text
-		font-size: 28px
+		font-size: 20px
 		color: $dark
 		+tr(.2s)
 		+placeholder
@@ -565,7 +642,7 @@
 		+md
 			height: 125px
 	&__bl
-		margin-bottom: 50px
+		margin-bottom: 40px
 		+tr(.2s)
 		&:last-child
 			margin-bottom: 0
@@ -581,11 +658,11 @@
 		bottom: 0
 		z-index: 1
 		width: 100%
-		height: 150px
+		height: 110px
 		background-color: $dark
 		background: #000
 		+textB
-		font-size: 34px
+		font-size: 30px
 		color: #fff
 		letter-spacing: .2em
 		text-transform: uppercase

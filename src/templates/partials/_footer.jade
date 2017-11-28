@@ -1,0 +1,16 @@
+section.footer
+	.l
+		.footer__in
+			.footer__soc
+				ul.social
+					-icons = ['fb', 'tw', 'is']
+					-links = ['https://www.facebook.com/onukisound/', 'https://twitter.com/ONUKI_TECH', 'https://www.instagram.com/onukisound/']
+					each ic, i in icons
+						li.social__el: a(href=links[i], target="_blink")
+							img(src="img/#{ic}.png", alt="#{ic}")
+			.footer__copy
+				span(data-popup-name="conditions").js-popup-hand Conditions of Use
+				=" "
+				span(data-popup-name="privacy").js-popup-hand Privacy Notice
+				=" "
+				span © 2017, ONUKI.tech, Inc.

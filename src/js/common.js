@@ -3,6 +3,7 @@ import {BODY} from './constants';
 
 if ( !isTouchDevice() ) BODY.addClass('no-touch');
 
+import './components/_countdown';
 import './components/_popup';
 import './components/_rating';
 import './components/_accordion';

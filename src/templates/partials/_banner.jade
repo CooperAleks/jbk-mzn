@@ -1,0 +1,9 @@
+section.banner
+		.l
+			.banner__in
+				.banner__title.title-l Extra protection
+				ul.banner__list
+					-links = ['IPX7:', 'waterproof', 'sweatproof', 'tearsproof']
+					each link, i in links
+						-mod = i ? '' : 'banner__link_h'
+						li.banner__link(class=mod)=link

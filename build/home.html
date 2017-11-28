@@ -35,7 +35,7 @@
       </style>
       <section class="hero">
         <div class="l">
-          <div class="hero__logo"><a href="home.html" class="logo"><img src="img/logo.png" alt="logo" width="442"></a></div>
+          <div class="hero__logo"><a href="/" class="logo"><img src="img/logo.png" alt="logo" width="442"></a></div>
           <div class="hero__title title-l">Turn up the music</div>
         </div>
       </section>
@@ -75,7 +75,7 @@
           <div class="product__item product__item_m"><img src="img/prod-2.jpg" alt="prod-2"></div>
           <div class="product__item product__item_r"><img src="img/prod-3.jpg" alt="prod-3"></div>
         </div>
-        <div class="product__btn"><a href="https://www.amazon.com/Headphones-Waterproof-Sweatproof-Secure-Fit-Noise-Cancelling/dp/B074K7WZRZ/ref=sr_1_1?ie=UTF8&amp;qid=1507718672&amp;sr=8-1&amp;keywords=bluetooth+wireless+earbuds" target="_blink" class="btn-img"><span>Buy From</span><img src="img/amazon.png" alt="amazon"></a></div>
+        <div class="product__btn"><a href="https://www.amazon.com/Headphones-Waterproof-Sweatproof-Secure-Fit-Noise-Cancelling/dp/B074K7WZRZ/ref=sr_1_1?ie=UTF8&amp;qid=1507718672&amp;sr=8-1&amp;keywords=best+running+headphones" target="_blink" class="btn-img"><span>Buy From</span><img src="img/amazon.png" alt="amazon"></a></div>
       </section>
       <section class="banner">
         <div class="l">
@@ -98,7 +98,7 @@
               <div class="about__title title-m">Why choose onuki?</div>
               <div class="about__subtitle subtitle">just few tips from our customers</div>
               <div class="about__dt">Controls</div>
-              <div class="about__dd">There is no remote to flop around and hit your face--the controls are built right into the earbuds. They are easy to find and use while running, and you can skip, rewind, and adjust the volume at any moment, hassle-free.</div>
+              <div class="about__dd">There is no remote to flop around and hit your face - the controls are built right into the earbuds. They are easy to find and use while running, and you can skip, rewind, and adjust the volume at any moment, hassle-free.</div>
               <div class="about__dt">Over-the-ear hooks</div>
               <div class="about__dd">There are a lots of Bluetooth earbuds available on Amazon which sound great, but don’t always stay put in your ear while you’re running or working out. Onuki earbuds feature over-the-ear hooks, which completely resolve this concern. I did
                 a quick test by running in place, doing jumping jacks, and doing push-ups, and the earbuds stayed firmly in place in my ear without an issue.</div>
@@ -160,7 +160,7 @@
                 <li class="social__el"><a href="https://www.instagram.com/onukisound/" target="_blink"><img src="img/is.png" alt="is"></a></li>
               </ul>
             </div>
-            <div class="footer__copy"><span data-popup-name="conditions" class="js-popup-hand">Conditions of Use</span> <span data-popup-name="privacy" class="js-popup-hand">Privacy Notice</span> <span>© 2017, ONUKI.com, Inc.</span></div>
+            <div class="footer__copy"><span data-popup-name="conditions" class="js-popup-hand">Conditions of Use</span> <span data-popup-name="privacy" class="js-popup-hand">Privacy Notice</span> <span>© 2017, ONUKI.tech, Inc.</span></div>
           </div>
         </div>
       </section>
@@ -181,7 +181,7 @@
         </form>
       </div>
       <div data-popup-name="rating" class="popup js-popup">
-        <form action="/send1.php" method="POST" data-success-link="https://www.amazon.com/review/create-review?asin=B074K7WZRZ#" class="popup__in js-rating-form">
+        <form action="/send.php" method="POST" data-success-link="https://www.amazon.com/review/create-review?asin=B074K7WZRZ#" class="popup__in js-rating-form">
           <div class="popup__head">
             <div class="popup__title">We like you, do you like us?</div>
           </div>
@@ -311,7 +311,7 @@
           <div class="popup__title">WE want to see you!</div>
         </div>
         <div class="popup__body">
-          <p>Send us your photo, we like to see our pruducts in action :)</p>
+          <p>Send us your photo, we like to see our products in action :) or just hashtag it <span>#onukisound</span></p>
           <p>Every month mr.Onuki selects photo-winners and sends gifts to them. You can follow us on Facebook to stay tuned!</p>
           <div class="popup__bl"><input type="text" name="userName" placeholder="Your Name"><input type="email" name="userEmail" placeholder="Your Email" required="required"></div>
           <div class="photo-drop">
@@ -422,6 +422,43 @@
     <!--END out-->
     <!--LOAD SCRIPTS-->
     <script type="text/javascript" src="js/app.js"></script>
+    <script>
+      ! function(f, b, e, v, n, t, s)
+      {
+        if (f.fbq) return;
+        n = f.fbq = function()
+        {
+          n.callMethod ?
+            n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+      }(window, document, 'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '132576967457638');
+      fbq('track', 'PageView');
+
+    </script><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=132576967457638&amp;ev=PageView&amp;noscript=1"></noscript>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110119519-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag()
+      {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'UA-110119519-1');
+
+    </script>
   </body>
 
 </html>

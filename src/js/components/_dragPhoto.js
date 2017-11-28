@@ -3,22 +3,26 @@ const form = $(".js-photo-drop"),
 	input = document.querySelector('input[type="file"]'),
 	submit = form.find(".js-form-submit"),
 	action = form.attr("action"),
+	labelBox = form.find('.photo-drop__area'),
 	method = form.attr("method") || "POST";
 
-input.addEventListener("change", function() {
-	if (this.files[0]) {
-		var fr = new FileReader();
-		fr.addEventListener(
-			"load",
-			function() {
-				photo.setAttribute("src", fr.result);
-			},
-			false
-		);
+if (window.location.pathname !== '/blackfriday.html' && window.location.pathname !== '/blackfriday') {
+	input.addEventListener("change", function() {
+		if (this.files[0]) {
+			var fr = new FileReader();
+			fr.addEventListener(
+				"load",
+				function() {
+					photo.setAttribute("src", fr.result);
+				},
+				false
+			);
 
-		fr.readAsDataURL(this.files[0]);
-	}
-});
+			fr.readAsDataURL(this.files[0]);
+		}
+		labelBox.removeClass('is-error');
+	});
+}
 
 let droppedFiles = false;
 
@@ -40,13 +44,28 @@ form
 	    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	    return re.test(email);
 	}
+
+form.find('[name="userEmail"]')
+	.on('blur focus', e => {
+		form.find('[name="userEmail"]').removeClass('is-error');
+	});
+
 submit.on("click", e => {
 	e.preventDefault();
 	const file = input.files[0];
 	var userEmail = form.find('[name="userEmail"]').val();
 	if(!validateEmail(userEmail)) {
-		form.find('[name="userEmail"]').addClass('is-error'); 
+		form.find('[name="userEmail"]').addClass('is-error');
 		return false;
+	} else if (!file) {
+		labelBox.addClass('is-error');
+		$('.popup__body').animate({
+            scrollTop: labelBox.offset().top
+        }, 2000);
+		return false;
+	} else {
+		form.find('[name="userEmail"]').removeClass('is-error');
+		labelBox.removeClass('is-error');
 	}
 	var userName = form.find('[name="userName"]').val();
 
@@ -64,7 +83,6 @@ submit.on("click", e => {
 		cache: false,
 		processData: false,
 		success: function(data) {
-			console.log(data);
 			form.find('.js-popup-hand').trigger('click');
 		}
 	});

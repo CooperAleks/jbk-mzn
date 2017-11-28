@@ -1,0 +1,13 @@
+section.about
+        .l
+            .about__in
+                .about__img
+                    img(src="img/fly.png", alt="")
+                .about__dsc
+                    .about__title.title-m Why choose onuki?
+                    .about__subtitle.subtitle just few tips from our customers
+                    -names = ["Controls", "Over-the-ear hooks", "Great Conversation"]
+                    -texts = ["There is no remote to flop around and hit your face - the controls are built right into the earbuds. They are easy to find and use while running, and you can skip, rewind, and adjust the volume at any moment, hassle-free.", "There are a lots of Bluetooth earbuds available on Amazon which sound great, but don’t always stay put in your ear while you’re running or working out. Onuki earbuds feature over-the-ear hooks, which completely resolve this concern. I did a quick test by running in place, doing jumping jacks, and doing push-ups, and the earbuds stayed firmly in place in my ear without an issue.", "Not just for music, these headphone are also a great choice for making phone calls with friends and family. CVC 6.0 Noise Cancellation technology filters out any background noise and makes your sound loud and clear. You can expect high quality, hands-free phone conversations even on a busy street or inside a shopping mall."]
+                    each name, i in names
+                        .about__dt=name
+                        .about__dd=texts[i]

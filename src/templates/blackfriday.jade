@@ -1,0 +1,82 @@
+---
+title: Blackfriday
+---
+extends layouts/_layout
+block content
+	style.
+		.hero {
+			background-image: url(img/landing/banner-1.jpg);
+		}
+		.banner__blackfriday {
+			background-image: url(img/banner-1.jpg);
+		}
+		@media (max-height: 767px) and (max-width: 1023px) and (orientation: portrait) {
+			.hero {
+				background-image: url(img/banner-mob-1.jpg);
+			}
+			.banner {
+				background-image: url(img/banner-mob-2.jpg);
+			}
+		}
+
+	section.hero
+		.l
+			.hero__logo
+				a(href="/").logo
+					img(src="img/landing/logo_gradient.png" alt="logo" width="442")
+				#countTimer.countdown-timer
+					ul
+						-timerSet = ["hours", "minutes", "seconds"]
+						each item, i in timerSet
+							li.timer__item(class="#{item}-box")
+								.smalltext #{item}
+								span(class="#{item}")
+			.hero__wrapper.title-m YOUR CODE TO GET 25% DISCOUNT</br>AT AMAZON CHECKOUT
+				.hero__promo 2017PM25
+
+	section.options
+		.l
+			.options__items
+				-icons = ["opt-1", "opt-2", "opt-3", "opt-4", "opt-5", "opt-6"]
+				-texts = ["IPX7<br>Nano Coating<br>Water Resistant", "Silicone eartips<br>+ Foam Eartips<br>S, M, L sizes", "Stable connection<br>with Bluetooth<br>enabled devices", "Zippered<br>Carry Case", "Micro USB<br>+ iPhone<br>Charging Cable", "Amazing Battery:<br>Up to 9 Hours<br>Playback time!"]
+				each ic, i in icons
+					.options__item
+						.options__ic
+							img(src="img/#{ic}.png", alt="#{ic}")
+						.options__text!=texts[i]
+
+	section.product
+		.product__items
+			-images = ["prod-1", "prod-2", "prod-3"]
+			each img, i in images
+				case i
+					when 0
+						-mod = 'l'
+					when 1
+						-mod = 'm'
+					when 2
+						-mod = 'r'
+				-mod = 'product__item_'+mod
+				.product__item(class=mod)
+					img(src="img/#{img}.jpg" alt="#{img}")
+		.product__btn
+			a(href="https://www.amazon.com/Headphones-Waterproof-Sweatproof-Secure-Fit-Noise-Cancelling/dp/B074K7WZRZ/ref=sr_1_1?ie=UTF8&qid=1507718672&sr=8-1&keywords=best+running+headphones" target="_blink").btn-img
+				span Buy From
+				img(src="img/amazon.png" alt="amazon")
+
+	section.banner.banner__blackfriday
+		.l
+			.banner__in
+				.banner__title.title-l Turn up the music
+				ul.banner__list
+					-links = ['IPX7:', 'waterproof', 'sweatproof', 'tearsproof']
+					each link, i in links
+						-mod = i ? '' : 'banner__link_h'
+						li.banner__link(class=mod)=link
+
+	include partials/_about
+
+	section.banner__review
+		img(src="img/landing/rev_section.png" alt="logo" width="442")
+
+	include partials/_footer

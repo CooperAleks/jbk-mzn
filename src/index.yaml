@@ -3,3 +3,5 @@ ProjectTitle: onuki
 PageList:
 - file: home.html
   ready: 50
+- file: blackfriday.html
+  ready: 50

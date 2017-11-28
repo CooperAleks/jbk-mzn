@@ -75,15 +75,17 @@ class Rating {
 	}
 }
 
+if (window.location.pathname !== '/blackfriday.html' && window.location.pathname !== '/blackfriday') {
+	new Rating({
+		target: '.js-rating',
+		targetBar: '.js-rating-bar',
+		targetVal: '.js-rating-val',
+		targetTxt: '.js-rating-txt',
 
-new Rating({
-	target: '.js-rating',
-	targetBar: '.js-rating-bar',
-	targetVal: '.js-rating-val',
-	targetTxt: '.js-rating-txt',
+		callback: ratingCall
+	});
+}
 
-	callback: ratingCall
-});
 
 const ratingForm = $('.js-rating-form'),
 			hiddenBl = ratingForm.find('.js-hidden-bl');
